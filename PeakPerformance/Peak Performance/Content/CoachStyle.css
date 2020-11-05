@@ -1,0 +1,32 @@
+﻿body {
+    
+}
+
+.card {
+    background-color:whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    min-width: 400px;
+    margin: 50px auto auto auto;
+    font-family: arial;
+    /*text-align: center;*/
+}
+h1{
+    font-family: serif;
+}
+.profileportion {
+    text-align: center;
+}
+
+.content{
+    margin-left:20px;
+    padding-bottom:20px;
+}
+
+h3 {
+    font-family: serif;
+}
+
+button {
+    margin-bottom: 20px;
+}

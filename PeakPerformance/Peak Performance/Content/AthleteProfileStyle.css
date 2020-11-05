@@ -1,0 +1,114 @@
+﻿.jumbotron {
+    margin-top: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    min-width: 400px;
+    margin: 50px auto auto auto;
+    text-align: center;
+    font-family: arial;
+}
+
+.col-md-3 {
+    width: auto !important;
+}
+
+#fitbit {
+    max-width: 400px;
+    min-width: 400px;
+    margin: 25px auto auto auto;
+    font-family: arial;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#myTable {
+    max-width: 400px;
+    min-width: 400px;
+    margin: 25px auto auto 15px;
+    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+    font-family: "Seville-Regular";
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /*background-image: url(~/Images/fitbit_logo.jpg);*/
+}
+
+    #myTable tr td {
+        border: 2px solid #00b0b9;
+        font-size: large;
+        padding: 5px;
+    }
+
+    #myTable tr th {
+        text-align: center;
+        font-size: x-large;
+        border: 2px solid #00b0b9;
+        padding: 5px;
+    }
+
+#fitbit_steps {
+    background-image: url('../Images/fitbit_steps.png');
+    background-color: transparent;
+    background-size: 180px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+}
+
+#fitbit_cals_above {
+    background-image: url('../Images/fitbit_cals_above.png');
+    background-color: #0ed145;
+    background-size: 240px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#fitbit_cals_below {
+    background-image: url('../Images/fitbit_cals_below.png');
+    background-color: #ed1c24;
+    background-size: 310px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#helpandhints {
+    max-width: 400px;
+    min-width: 400px;
+    margin: 10px auto auto auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    float: left;
+    font-family: "Seville-Regular";
+}
+
+#recordFormAdding {
+    display: none;
+}
+
+#hhbox {
+    background-color: #00b0b9;
+    border-radius: 10px;
+}
+
+.table {
+    width: 80% !important;
+}
+
+#fitbitLink {
+    color: white;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+}

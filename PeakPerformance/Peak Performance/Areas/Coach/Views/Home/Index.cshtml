@@ -1,0 +1,174 @@
+﻿@model Peak_Performance.Models.CoachProfileViewModel
+
+@{
+    ViewBag.Title = "CoachProfile";
+    Layout = "~/Areas/Coach/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var imgSrc = "~/Images/Avatar.png";
+    if (Model.ProfilePic != null)
+    {
+        var base64 = Convert.ToBase64String(Model.ProfilePic);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+}
+
+<br>
+<div class="card">
+    <div class="profileportion">
+        <img src="@imgSrc" alt="Profile Picture" style="width:300px; margin-top: 15px;" id="profilePic" />
+        <br/>
+        @*@using (Html.BeginForm("UploadPhoto", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" id="btnUpload" value="Upload" />
+        }
+        <br />*@
+        <a href="~/Coach/Home/EditProfile">Edit Profile</a>
+        <h1>@Model.coach.Person.FirstName @Model.coach.Person.LastName</h1>
+        @{
+            Random rnd = new Random();
+            int rand = rnd.Next(1, 11); //from 1 to 10 random
+            if (rand == 1)
+            {
+                <p class="w3-xxlarge w3-serif"><i>"The key is not the will to win. Everybody has that. It is the will to prepare to win that is important."</i></p>
+                <p>-BOBBY KNIGHT</p>
+            }
+            else if (rand == 2)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“Hard work beats talent when talent doesn’t work hard.”</i></p>
+                <p>-TIM NOTKE</p>
+            }
+            else if (rand == 3)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“It’s hard to beat a person who never gives up.”</i></p>
+                <p>-BABE RUTH</p>
+            }
+            else if (rand == 4)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“The harder the battle, the sweeter the victory.”</i></p>
+                <p>-LES BROWN</p>
+            }
+            else if (rand == 5)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“Never say never because limits, like fears, are often just an illusion.”</i></p>
+                <p>-MICHAEL JORDAN</p>
+            }
+            else if (rand == 6)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“You miss 100% of the shots you don’t take.”</i></p>
+                <p>-WAYNE GRETZKY</p>
+            }
+            else if (rand == 7)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“Today, you have 100% of your life left.”</i></p>
+                <p>-TOM LANDRY</p>
+            }
+            else if (rand == 8)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“Winning isn’t everything, but wanting to win is.”</i></p>
+                <p>-VINCE LOMBARDI</p>
+            }
+            else if (rand == 9)
+            {
+                <p class="w3-xxlarge w3-serif"><i>“There may be people that have more talent than you, but there’s no excuse for anyone to work harder than you do.”</i></p>
+                <p>-DEREK JETER</p>
+            }
+            else
+            {
+                <p class="w3-xxlarge w3-serif"><i>“If you can’t outplay them, outwork them.”</i></p>
+                <p>-BEN HOGAN</p>
+            }
+        }
+        <br />
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>My Teams</h3>
+                <button>
+                    <a href="~/Teams/Create?id=@Model.coach.ID">Add A New Team</a>
+                </button>
+                <table class="w3-table-all w3-hoverable">
+                    @foreach (var item in Model.teams)
+                    {
+                        <tr>
+                            <td>
+                                <a href="~/Teams/Details/@item.ID">
+                                    @Html.DisplayFor(modelItem => item.TeamName)
+                                    @*@Html.ActionLink("Details", "Details", "Teams", new { id = item.TeamId }, null)*@
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <div class="col-md-8">
+                <h3>My Athletes</h3>
+                <button>
+                    @*@Html.ActionLink("Add New Athlete", "Create", "Athletes", new { area = "" })*@
+                    <a href="~/Coach/Home/AddAthlete/?id=@Model.coach.ID">Add A New Athlete</a>
+                </button>
+                <table class="w3-table-all w3-hoverable">
+                    <tr class="w3-light-grey">
+                        <th>
+                            Team
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Preferred Name
+                        </th>
+                        <th>
+                            Active
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.athletes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team.TeamName)
+                            </td>
+                            <td>
+
+                                @*@Html.ActionLink(@Html.DisplayFor(modelItem => item.FirstName) + " " + @Html.DisplayFor(modelItem => item.LastName), "Details", "Athletes", new { id=item.AthleteId },null)*@
+
+                                <a href="~/Athletes/Details/@item.ID">
+                                    @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
+                                    @*@Html.ActionLink("Details", "Details", "Teams", new { id = item.TeamId }, null)*@
+                                </a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Person.PreferredName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Person.Active)
+                            </td>
+                            <td>
+                                <a href="~/Athletes/Edit/@item.ID">Edit</a> |
+                                <a href="~/Athletes/Delete/@item.ID">Delete</a>
+                                @*@Html.ActionLink("Edit", "Edit", "Athletes", new { id = item.AthleteId }, null) |
+                                    @Html.ActionLink("Delete", "Delete", "Athletes", new { id = item.AthleteId }, null)*@
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <button style="margin-top: 20px;">
+            @Html.ActionLink("Go to Workout Search", "SearchMain", "Workouts")
+        </button>
+    </div>
+</div>
+
+@section scripts
+{
+    <link href="@Url.Content("~/Content/CoachStyle.css")" rel="stylesheet" type="text/css" />
+
+}

@@ -1,0 +1,80 @@
+﻿@*model IEnumerable<Peak_Performance.Models.Exercis>*@
+@{
+    ViewBag.Title = "Exercise Search Page";
+    Layout = "~/Areas/Coach/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Exercise Search Page</h2>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <div class="search">
+                @Html.TextBox("exercise", null, new { @class = "form-control", type = "text" })
+                <br />
+                <button class="btn btn-primary" onclick="getExercisesbyText()">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <div class="search">
+                @Html.DropDownList("MuscleGroupsId", null, "Search by Muscle Group", htmlAttributes: new { @class = "form-control", @onchange = "GetSelectedSubject(this);", @runat = "server", @ClientIDMode = "Static" })
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>   
+<div class="row">
+    <div class="col-md-4" style="background-color: lightgrey; border: 5px solid black; padding: 5px; margin: 5px;">
+        <div id="result">
+            <p style="font-size:160%;">Search Results</p>
+            @if (Model != null && Request.QueryString["exercise"] != null)
+            {
+                <div class="container">
+                    <p>Showing result for: "@Request.QueryString["exercise"]"</p>
+                    @foreach (var Exercise in Model)
+                    {
+                        <p>@Exercise.Name</p>
+                    }
+
+                </div>
+            }
+            <div></div>
+        </div>
+    </div>
+    <div class="col-md-6" id="EntireWorkoutElement">
+        <div class="row" style="background-color: lightgrey; border: 5px solid black; padding: 5px; margin: 5px;" align="center">
+            <p style="font-size:160%;" align="center">Workout Details</p>
+            <div class="row">
+                <div class="col-md-6">@Html.DropDownList("TeamList", "Select the assigned team")</div>
+                <div class="col-md-6">@Html.TextBox("Date", null, new { @class = "form-control", type = "Date" })</div>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" id="newworkout" onclick="createWorkout()" style="padding: 5px; margin: 5px;">+ Create New Workout</button>
+            </div>
+
+        </div>
+        <div class="row" id="workout" style="visibility:hidden; font-size:150%; background-color: lightgrey; border: 5px solid black; padding: 5px; margin: 5px;">
+            Workout
+            <div class="row" align="right" style="padding: 5px; margin: 5px;">
+                <button class="btn btn-primary" id="newcomplex" onclick="createComplex()" style="padding: 5px; margin: 5px;">+ Create New Complex</button>
+            </div>
+            <div class="row" id="complexes" style="font-size:75%; background-color: lightgrey; margin: 5px;">
+
+            </div>
+            <div class="row" align="right" style="padding: 5px; margin: 5px;">
+                <button class="btn btn-primary" id="saveworkout" onclick="createWorkoutSave()" style="padding: 5px; margin: 5px;">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script src="~/Scripts/main.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+}
+

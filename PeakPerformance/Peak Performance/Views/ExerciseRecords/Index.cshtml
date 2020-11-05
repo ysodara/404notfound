@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Peak_Performance.Models.ExerciseRecord>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exercis.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplexReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplexSets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiftWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunDistance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Athlete.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exercis.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplexReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplexSets)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiftWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunDistance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ExerciseRecordId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ExerciseRecordId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ExerciseRecordId })
+        </td>
+    </tr>
+}
+
+</table>

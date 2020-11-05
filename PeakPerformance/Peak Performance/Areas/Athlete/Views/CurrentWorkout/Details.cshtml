@@ -1,0 +1,75 @@
+﻿@model Peak_Performance.Models.ViewModels.FullWorkoutViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Current Workout</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.workout.WorkoutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.workout.WorkoutDate)
+        </dd>
+    </dl>
+
+    <div>
+        <h4>Workout Details</h4>
+        <a href="~/Athlete/CurrentWorkout/DownloadPDF/@Model.workout.ID" class="btn btn-primary" role="button">Download</a>
+        <div class="row" id="workout" style="font-size:150%; background-color: lightgrey; border: 5px solid black; padding: 5px; margin: 5px; width: 930px;">
+            @foreach (Peak_Performance.Models.Complex comp in Model.complexes)
+            {
+                <div class="row" style="background-color: white; border: 5px solid black; padding: 5px; margin: 5px; width: 900px;">
+                    <div class="complex">
+                        Complex
+                        <table id="exercises" style="background-color: white; border: 5px solid black; padding: 5px; margin: 5px;">
+                            <tr>
+                                <th style="width: 200px; padding: 5px; margin: 5px">Exercise</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Reps</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Sets</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Weight</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Time</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Speed</th>
+                                <th style="width: 100px; padding: 5px; margin: 5px">Distance</th>
+                            </tr>
+                            @foreach (Peak_Performance.Models.ComplexItem item in Model.exercises[comp.ID])
+                            {
+                                <tr>
+                                    <td>@item.Exercis.Name</td>
+                                    <td>@item.ComplexReps</td>
+                                    <td>@item.ComplexSets</td>
+                                    <td>@item.LiftWeight</td>
+                                    <td>@item.RunTime</td>
+                                    <td>@item.RunSpeed</td>
+                                    <td>@item.RunDistance</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div>
+    <h3>
+        Workout Notes:
+    </h3>
+    <p>
+        @ViewBag.Note
+    </p>
+</div>
+
+<br>
+    
+@*@Html.ActionLink("Complete Workout", "Create", "Record", new { area = "Athlete" })*@
+
+<a href="~/Athlete/Records/Create/@Model.workout.ID" class="button"> Complete Workout</a>

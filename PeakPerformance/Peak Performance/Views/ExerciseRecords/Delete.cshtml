@@ -1,0 +1,88 @@
+﻿@model Peak_Performance.Models.ExerciseRecord
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ExerciseRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercis.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercis.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComplexReps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComplexReps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComplexSets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComplexSets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunDistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunDistance)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

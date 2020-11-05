@@ -1,0 +1,34 @@
+﻿@model Peak_Performance.Models.CoachProfileViewModel
+
+@{
+    ViewBag.Title = "AddAthlete";
+    Layout = "~/Areas/Coach/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add An Athlete To My Team:</h2>
+
+@using (Html.BeginForm("AddAthlete", "Home", FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("Athlete Name", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.athItem.ID, Model.athList, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Team Name", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.teamItem.ID, Model.teamList, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

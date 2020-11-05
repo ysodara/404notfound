@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SwimElite.Models.Event>
+
+@{
+    ViewBag.Title = "Event Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Event Search</h2>
+
+<div class="col-md-6">
+    @using (Html.BeginForm("Search", "Events", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>@Html.TextBox("search", null, new { style = " Width:900px; ", required = "required" })</td>
+                <td colspan="2"><input type="submit" value="Search"></td>
+            </tr>
+        </table>
+    }
+</div>
+<table class="table table-bordered table-striped table-hover">
+    @if (Model.Count() > 0)
+    {
+        <tr>
+            <td colspan="4">
+                Race Event matching your search: "@Request.QueryString["search"]"
+            </td>
+
+
+        </tr>
+    }
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.ActionLink(item.EventList.Name, "SearchDetails", "Events", new { id = item.EventList.Name }, null)
+            </td>
+
+
+        </tr>
+
+    }
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

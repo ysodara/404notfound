@@ -1,0 +1,188 @@
+﻿@model Peak_Performance.Models.ViewModels.AthleteProfileViewModel
+
+@{
+    ViewBag.Title = "Your Profile";
+    Layout = "~/Areas/Athlete/Views/Shared/_Layout.cshtml";
+    ViewBag.Height = ViewData["Height"];
+    if (ViewBag.Height != null)
+    {
+        <input hidden value="@ViewBag.Height" id="height" />
+        <input hidden value="@ViewData["Weight"]" id="weight" />
+        <input hidden value="@ViewData["Age"]" id="age" />
+        <input hidden value="@ViewData["Sex"]" id="sex" />
+    }
+}
+
+@{
+    var imgSrc = "~/Images/Avatar.png";
+    if (Model.ProfilePic != null)
+    {
+        var base64 = Convert.ToBase64String(Model.ProfilePic);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+}
+
+<div class="container container-fluid">
+    <div class="row">
+        <div class="col-md-3" style="top: 0; font-size: 20px;">
+            <div class="card">
+                <img src="@imgSrc" alt="Profile Picture" style="width:300px; margin-top: 15px;" />
+                <br/>
+                @*@using (Html.BeginForm("UploadPhoto", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="postedFile" />
+                    <input type="submit" id="btnUpload" value="Upload" />
+                }*@
+                <h1>@Html.DisplayFor(item => item.athlete.Person.FirstName) @Html.DisplayFor(item => item.athlete.Person.LastName)</h1>
+                <p class="team">@Html.DisplayFor(item => item.athlete.Team.TeamName)</p>
+                <br />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <div>
+                    <h4>Past Workouts</h4>
+
+                    @if (Model.pastWorkoutLists.Count() > 0) {
+                    <table class="table">
+                        @foreach (var item in Model.pastWorkoutLists) {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(item.WorkoutDate.ToString("MM-dd-yyyy"), "Details", "CurrentWorkout", new { id = item.ID }, new { area = "Athlete" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    }
+                    else { 
+                        <p>You have no past workouts yet. Go hit the gym!</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <div>
+                    <h4>Upcoming Workouts</h4>
+
+                    @if (Model.upcomingWorkoutLists.Count() > 0) {
+                        <table class="table">
+                            @foreach (var item in Model.upcomingWorkoutLists) {
+                                <tr>
+                                    <td>
+                                        @Html.ActionLink(item.WorkoutDate.ToString("MM-dd-yyyy"), "Details", "CurrentWorkout", new { id = item.ID }, new { area = "Athlete" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else {
+                        <p>You have no assigned workouts yet.</p>
+                    }
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="fitbitImage">
+            @*//This is the one to un-comment when using locally*@
+            @*<a title="Connect your FitBit to track your Fitness!" href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22BHTD&redirect_uri=https%3A%2F%2Flocalhost%3A44322%2FAthlete&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800">*@
+            @*//This is the one to un-comment when using Azure*@
+            <a title="Connect your FitBit to track your Fitness!" href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22BQKY&redirect_uri=https%3A%2F%2Fpeakperformancedev.azurewebsites.net%2FAthlete&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800">
+                <div class="col-md-3" id="fitbit" style="margin-left: 15px !important;">
+                    <img src="~/Images/fitbit.png" alt="Connect your FitBit to track your Fitness!" style="width:150px; margin: 15px;" />
+                </div>
+            </a>
+        </div>
+        <table class="table table-bordered table-hover col-md-3" id="myTable" style="visibility:hidden;">
+        </table>
+    </div>
+    <div class="row" id="helpandhints" style="visibility:hidden;">
+        <a href="~/Athlete/Home/HelpAndHints">
+            <img src="~/Images/helpAndHints.png" style="width: 200px; border-radius: 5px; margin-top: 10px;" />
+        </a>
+        <h6>Refresh page to update FitBit Data</h6>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-3" style="margin-right:50px;">
+            <div class="w3-container">
+
+                <h2>Current Liftweight</h2>
+                <button type="button" class="btn btn-outline-secondary" onclick="myFunction1()" style="margin-bottom:10px;">Add new Max</button>
+
+                <table class="w3-table-all w3-hoverable">
+                    <tr class="w3-light-grey">
+                        <th>Exercise</th>
+                        <th>Weight</th>
+                    </tr>
+                    @foreach (var item in Model.currMaxList)
+                    {
+                        <tr>
+                            <td>
+
+                                @Html.DisplayFor(modelItem => item.Exercis.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LiftWeight) Lbs
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="container" id="recordFormAdding" style="margin-top:10px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Adding New Record</h4>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="ExerciseID">
+                                Exercise List Name
+                            </label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("ExerciseID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.newRecord.ExerciseID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            @Html.LabelFor(model => model.newRecord.LiftWeight, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBox("LiftWeight", null, new { style = " Width:900px; ", type = "number" })
+                                @Html.ValidationMessageFor(model => model.newRecord.LiftWeight, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <link href="@Url.Content("~/Content/AthleteProfileStyle.css")" rel="stylesheet" type="text/css" />
+
+}
+
+<script type="text/javascript" src="~/Scripts/app.js">
+    var heightView = "5";
+    window.ViewBag.Height = "5";
+</script>

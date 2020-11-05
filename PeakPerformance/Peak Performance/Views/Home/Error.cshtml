@@ -1,0 +1,30 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="text-align: center">
+    <img src="~/Images/Compact_Dome_Background.png"/>
+   
+    <h4>An error has occurred, we apologize for the inconvenience.</h4>
+    <h5>Please select a link above to navigate away from this page, or select Contact to send us a message about this error.</h5>
+    <h4>Thank you!</h4>
+    <p>
+    @Html.ActionLink("Back to Home", "Index")
+    </p>
+</div>
+
+@if (Model != null && Model.Exception != null) { 
+<div class="row">
+    <h5>Error details: @Model.Exception</h5>
+</div>
+}
+else
+{
+    <div class="row">
+        <h5>No error details provided</h5>
+    </div>
+}
+

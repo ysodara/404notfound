@@ -1,0 +1,215 @@
+﻿/*
+    HERE ARE THE BACKGROUND-COLORS TO CHOOSE FROM WHEN COLORING CERTAIN OBJECTS:
+    -> background-color: tan #e8d1a8 (Last choice color)
+    -> background-color: brown #b7afa4
+    -> background-color: seafoam green #c1dad6
+    -> background-color: light blue #add1e9
+    -> background-color: logo blue #255aa2 (darker) and #3f7fbc (lighter)
+    -> background-color: darker blue #6d929b
+    -> background-color: grey #C0C0C0
+    -> background-color: white #FFFFFF
+    -> background-color: black #000000
+
+    HERE IS THE FONT WE HAVE CHOSEN TO USE:
+    -> font-family: "Times New Roman", Times, serif;
+
+    TO EMPHANSIZE TEXT, USE THE FOLLOWING CSS:
+    -> font-variant-caps: small-caps;
+
+    **IF THE BACKGROUND COLOR IS DARK, PLEASE USE #FFFFFF FOR THE FONT COLOR**
+    -> color: #FFFFFF
+
+    **IF THE BACKGROUND COLOR IS LIGHT, PLEASE USE #000000 FOR THE FONT COLOR**
+    -> color: #000000
+
+    HOVERING CSS CODE:
+    ->  #idOfTag:hover {
+            background-color: #255aa2;
+        }
+
+    **HOVERING FOR INPUT OF TYPE BUTTON SHOULD BE THE SAME AS BUTTON TAGS**
+*/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse {
+    background-color: #C0C0C0;
+    border-color: none !important;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            background-color: #3f7fbc;
+            border-radius: 8px;
+        }
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+#companyLogo {
+    width: 300px;
+}
+
+/*FOR TITLES, THEY HAVE THESE CHARACTERISTICS. ADD VIA ID TAGS FOR EXTRA CHARACTERISTICS*/
+/*h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}*/
+
+/*-------------------------------------------------------------*/
+/*DEFAULT BUTTON STYLE. PLEASE ADD COLORING AND SUCH IN ID TAGS*/
+/*-------------------------------------------------------------*/
+button {
+    border-radius: 5px;
+}
+
+    button:hover {
+        background-color: #3f7fbc;
+        border-radius: 8px;
+    }
+
+input[type=button], input[type=submit], input[type=reset] {
+    border-radius: 5px;
+}
+
+    input[type=button], input[type=submit], input[type=reset]:hover {
+        background-color: #3f7fbc;
+        border-radius: 8px;
+    }
+/*-------------------------------------------------------------*/
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+
+#adminHomeItem {
+    border: 5px solid #3f7fbc;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #129cca;
+    margin: 5px;
+}
+
+    #adminHomeItem:hover {
+        border: 5px solid #3f7fbc;
+        border-radius: 12px;
+        text-align: center;
+        background-color: cornflowerblue;
+        margin: 5px;
+    }
+
+    #adminHomeItem > a {
+        color: white;
+        text-decoration: none;
+    }
+
+        #adminHomeItem > a > h3 {
+            font-variant-caps: small-caps;
+        }
+
+table > thead > tr > th {
+    text-align: center;
+}
+
+#adminHomeTitles {
+    background-color: #3f7fbc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-variant-caps: small-caps;
+    color: white;
+}
+
+#menuItem {
+    margin-bottom: 0px;
+}
+
+#menuBorder {
+    border-radius: 15px;
+    border: 2px solid #3f7fbc;
+}
+
+#menuLink {
+    color: #6d929b;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+    #menuLink:hover {
+        color: darkblue;
+    }
+
+h6 small {
+    font-size: 100%;
+}
+
+#myDIV3 {
+    display: none;
+}
+
+#myDIV2 {
+    display: block;
+}
+
+.cardRegister {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    min-width: 0px;
+    height: 120px;
+    margin: 30px 0 0 0;
+    text-align: center;
+    font-family: arial;
+    padding: 0px;
+}
+
+#registerA {
+    color: black;
+}
+
+#credits {
+    background-color: #0799ca;
+    border-radius: 15px;
+    padding: 15px;
+    border: #601cff solid 5px;
+}
+
+#creditsLink {
+    color: white;
+}

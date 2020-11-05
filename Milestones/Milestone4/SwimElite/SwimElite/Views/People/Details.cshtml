@@ -1,0 +1,70 @@
+﻿@model SwimElite.Models.Person
+@using System.Collections;
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<SwimElite.Models.Time> times = ViewBag.times;
+    List<SwimElite.Models.Time> prtimes = ViewBag.prtimes;
+
+}
+
+    <h2>Details</h2>
+
+    <div class="row">
+        <div class="jumbotron">
+            <h1>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+            <ul>
+                <li>@Html.DisplayNameFor(model => model.Login.UserName) : @Html.DisplayFor(model => model.Login.UserName)</li>
+                <li>@Html.DisplayNameFor(model => model.Gender) : @Html.DisplayFor(model => model.Gender)</li>
+                <li>@Html.DisplayNameFor(model => model.Age) : @Html.DisplayFor(model => model.Age)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <table>
+                <col width="200">
+                <col width="130">
+                <col width="80">
+                <caption>All Race Results</caption>
+                <tr>
+                    <th>Event</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                </tr>
+                @foreach (var time in times)
+                {
+                    <tr>
+                        <td>@time.Event.EventList.Name</td>
+                        <td>@time.Event.Location</td>
+                        <td>@time.Time1</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <table>
+                <col width="200">
+                <col width="130">
+                <col width="80">
+                <caption>Race PRs</caption>
+                <tr>
+                    <th>Event</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                </tr>
+                @foreach (var time in prtimes)
+                {
+            <tr>
+                <td>@time.Event.EventList.Name</td>
+                <td>@time.Event.Location</td>
+                <td>@time.Time1</td>
+            </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

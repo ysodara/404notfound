@@ -1,0 +1,45 @@
+﻿@model Peak_Performance.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    @foreach (var item in Model.Athletes) {
+        <tr>
+            <td>
+                @item.Person.FirstName @item.Person.LastName
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

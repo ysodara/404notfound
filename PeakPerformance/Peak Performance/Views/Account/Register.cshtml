@@ -1,0 +1,174 @@
+﻿@model Peak_Performance.Models.RegistrationTypes
+@using reCAPTCHA.MVC
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="cardRegister">
+
+    <ul style="list-style-type:none; padding: 17px 20px 20px 20px ;">
+        <li style="padding-bottom:10px;"><button type="button" class="btn btn-outline-secondary" id="registerBtn">Click To Register</button></li>
+        <li><a href="/Account/Login" id="registerA"><button type="button" class="btn btn-outline-secondary">Go to Log In</button></a></li>
+    </ul>
+
+    <br />
+</div>
+
+<div class="modal fade" id="registerModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    ×
+                </button>
+            </div>
+            <div class="modal-body">
+                <section id="registerForm">
+
+                    <button type="button" class="btn btn-outline-secondary" onclick="myFunction2()">Register as Coach</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="myFunction3()">Register as Athlete</button>
+
+                    <div id="myDIV2">
+                        <h2>Coach Registration</h2>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <hr />
+
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.coachVM.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.coachVM.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.coachVM.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.coachVM.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.coachVM.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.coachVM.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.coachVM.FirstName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.coachVM.FirstName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.coachVM.LastName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.coachVM.LastName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            @Html.Recaptcha()
+                            @Html.ValidationMessage("ReCaptcha")
+                            <br />
+                            <div class="control-label" style="float: left; padding-bottom: 15px;">
+                                By clicking register, you agree to the <a href="~/Home/TermsAndConditions">Terms and Conditions</a> and <a href="~/Home/PrivacyPolicy">Privacy Policy</a>.
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Register" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div id="myDIV3">
+                        <h2>Athlete Registration</h2>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <hr />
+                            @*@Html.ValidationMessageFor(m => m.Email)*@
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.athleteVM.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.athleteVM.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.athleteVM.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.FirstName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.athleteVM.FirstName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.LastName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.athleteVM.LastName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.athleteVM.DOB, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(m => m.athleteVM.DOB, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Height</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="feet" id="feet" placeholder="Feet" style="width:100px" type="number" min="3" max="8" />
+                                    <input class="form-control" name="inches" id="inches" placeholder="Inches" style="width:100px" type="number" min="0" max="11" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Weight</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="weight" id="weight" placeholder="lbs" type="number" min="0" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Sex</label>
+                                <div class="col-md-10">
+                                    <input type="radio" name="sex" value="F" /> Female
+                                    <input style="margin-left: 50px;" type="radio" name="sex" value="M" /> Male
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Gender</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="gender" id="gender" />
+                                </div>
+                            </div>
+                            @Html.Recaptcha()
+                            @Html.ValidationMessage("ReCaptcha")
+                            <br />
+                            <div class="control-label" style="float: left; padding-bottom: 15px;">
+                                By clicking register, you agree to the <a href="~/Home/TermsAndConditions">Terms and Conditions</a> and <a href="~/Home/PrivacyPolicy">Privacy Policy</a>.
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Register" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/register.js"></script>
+}

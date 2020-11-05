@@ -1,0 +1,39 @@
+﻿body {
+    background: url(../Images/dumbell.jpg);
+    margin: 0;
+    height: 100%;
+    background-size: cover;
+    
+    
+}
+
+footer p {
+    color:white;
+}
+
+.vision {
+    color: white;
+    font-size: 17px;
+}
+.text {
+    filter: alpha(opacity=50);
+}
+.container-fluid {
+    padding: 0px;
+    margin: 0px auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dumbell{
+    width:100%;   
+    opacity: 0.5;
+}
+h3, h4,h2 {
+    color: white;
+}
+
+ul li {
+    color: white;
+}

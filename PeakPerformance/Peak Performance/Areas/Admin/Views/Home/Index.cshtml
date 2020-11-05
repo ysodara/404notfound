@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Admin Home";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1 align="center" style="font-variant-caps:small-caps;">Admin Home Page</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-8" id="menuBorder">
+        <div style="padding: 20px; padding-bottom: 0px;">
+            <h2 id="adminHomeTitles">Athlete Links</h2>
+            <ul>
+                <li>
+                    <h5 id="menuItem">@Html.ActionLink("View All Athletes", "AllAthletes", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })</h5>
+                    <h6 style="margin-top: 0px; text-indent: 5px;"><small>List of all Athletes in the database.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="~/Account/RegisterAthlete">Add New Athlete</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>Add a new athlete for testing purposes.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="">[Future Link]</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>[Add a small description of what the link leads to.]</small></h6>
+                </li>
+            </ul>
+        </div>
+
+        <div style="padding-top: 5px; padding: 20px; padding-bottom: 0px;">
+            <h2 id="adminHomeTitles">Coach Links</h2>
+            <ul>
+                <li>
+                    <h5 id="menuItem">@Html.ActionLink("View All Coaches", "AllCoaches", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })</h5>
+                    <h6 style="margin-top: 0px; text-indent: 5px;"><small>List of all Coaches in the database.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="~/Account/RegisterCoach">Add New Coach</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>Add a new coach for testing purposes.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="">[Future Link]</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>[Add a small description of what the link leads to.]</small></h6>
+                </li>
+            </ul>
+        </div>
+
+        <div style="padding-top: 5px; padding: 20px; padding-bottom: 0px;">
+            <h2 id="adminHomeTitles">Admin Links</h2>
+            <ul>
+                <li>
+                    <h5 id="menuItem">@Html.ActionLink("View All Teams", "AllTeams", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })</h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>List of all Teams in the database.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="~/Account/RegisterAdmin">Add New Admin</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>Add new admin to keep watch over all activities.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem">@Html.ActionLink("View All Admins", "AllAdmin", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })</h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>List of all Users with Admin Roles and Priveleges.</small></h6>
+                </li>
+                <li>
+                    <h5 id="menuItem"><a id="menuLink" href="">[Future Link]</a></h5>
+                    <h6 style="margin-top: 0px;text-indent: 5px;"><small>[Add a small description of what the link leads to.]</small></h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <h2 align="center" style="font-variant-caps: small-caps;">Quick Access</h2>
+            <hr />
+        </div>
+        <div class="col-md-12" id="adminHomeItem">
+            <a href="~/Admin/Home/AllAthletes">
+                @*@Html.ActionLink("View All Athletes", "AllAthletes", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })*@
+                <h3>View All Athletes</h3>
+                <div>
+                    <h5>For quick access to the list of all Athlete's</h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-12" id="adminHomeItem">
+            <a href="~/Admin/Home/AllCoaches">
+                @*@Html.ActionLink("View All Coaches", "AllCoaches", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })*@
+                <h3>View All Coaches</h3>
+                <div>
+                    <h5>For quick access to the list of all Coache's</h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-12" id="adminHomeItem">
+            <a href="~/Admin/Home/AllTeams">
+                <h3>View All Teams</h3>
+                @*@Html.ActionLink("View All Teams", "AllTeams", "Home", new { area = "admin" }, htmlAttributes: new { id = "menuLink" })*@
+                <div>
+                    <h5>For quick access to the list of all Teams's</h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-12" id="adminHomeItem">
+            <a href="~/Account/RegisterAdmin">
+                <h3>Add Admin</h3>
+                <div>
+                    <h5>To Add New Administrators</h5>
+                </div>
+            </a>
+        </div>
+        @*<div class="col-md-12" id="adminHomeItem">
+                <a href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22BHTD&redirect_uri=https%3A%2F%2Flocalhost%3A44322%2FAdmin&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800">
+                    <h3>Log In to FitBit</h3>
+                    <div>
+                        <h5>For Testing Purposes</h5>
+                    </div>
+                </a>
+            </div>*@
+    </div>
+</div>

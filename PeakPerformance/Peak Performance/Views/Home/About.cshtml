@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<h2>Our Goal</h2>
+<div class="text">
+    <p class="vision">For teams and coaches looking to bring their athletes' strength training performance to the next level, Peak Performance is designed to tailor a variety of workouts to the athlete, keep athletes and coaches on the same page about training, and help athletes and coaches set training goals and make plans to accomplish them.</p>
+    <p class="vision">Peak Performance will provide continuous workout programs tailored to an athlete's specific needs and abilities, exercise tracking, and interfacing with social media to allow for a well-rounded strength training experience for all athletes.</p>
+    <p class="vision">Unlike many other strength training apps that are bogged down with features and add-ons that are never used, our product strives to serve our customers in the simplest, but most effective ways; helping athletes achieve their goals and helping teams grow closer as they do it.</p>
+</div>
+
+<h3>Core Features</h3>
+<ul>
+    <li>Customizable goals setting and algorithmic component to steadily reach goals in a reasonable timeframe</li>
+    <li>Weight (max) tracking and ability to output workout weights based on individualized stats</li>
+    <li>Interfacing with Fitbit API for continuous activity tracking, heart rate monitoring, etc.</li>
+</ul>
+
+<br>
+
+<h3>Upcoming Features</h3>
+<h4>Social media and community board aspect (possible)</h4>
+<ul>
+    <li>Interfacing with external social media APIs for ability to post workout updates, pictures, etc. on another platform</li>
+    <li>Community board feature with ability to post workouts and activities within a team or group forum to build community within the application</li>
+</ul>
+
+<br>
+<br>
+
+<p>
+    @Html.ActionLink("Back to Home", "Index")
+</p>
+@section scripts
+{
+    <link href="@Url.Content("~/Content/about_view.css")" rel="stylesheet" type="text/css" />
+}

@@ -1,0 +1,81 @@
+﻿@model Peak_Performance.Models.ContactFormModels
+
+@{
+    ViewBag.Title = "Contact";
+}
+    <h3 align="center">@ViewBag.Message</h3>
+    <form id="contact-form" name="contact-form" action="/Home/Recieved">
+        
+        <input name="firstName" id="Name" type="text" class="feedback-input" placeholder="Name" required />
+        <input name="email" id="email" type="email" class="feedback-input" placeholder="Email" required />
+        <input name="subject" id="subject" type="text" class="feedback-input" placeholder="subject" required />
+        <textarea name="text" id="message" class="feedback-input" placeholder="Message" required></textarea>
+        <br />
+        <input type="submit" onclick="SendEmail()" value="Send">
+    </form>
+
+<div class="container-fluid">
+
+    
+
+
+
+    <div class="jumbotron">
+
+
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <address>
+                    Joe Collinsworth<br />
+                    Monmouth, OR 97052-6399<br />
+                    <abbr title="Phone">Phone:</abbr>
+                    971.555.0100
+                    <abbr title="Email">Email:</abbr>
+                    Support@yahoo.com
+                </address>
+            </div>
+            <div class="col-md-3">
+                <address>
+                    Shay Green<br />
+                    Monmouth, OR 97052-6399<br />
+                    <abbr title="Phone">Phone:</abbr>
+                    503.555.0100
+                    <abbr title="Email">Email:</abbr>
+                    Support@yahoo.com
+                </address>
+            </div>
+            <div class="col-md-3">
+                <address>
+                    Megan Traeger<br />
+                    Monmouth, OR 97052-6399<br />
+                    <abbr title="Phone">Phone:</abbr>
+                    971.555.0100
+                    <abbr title="Email">Email:</abbr>
+                    Support@yahoo.com
+                </address>
+            </div>
+
+            <div class="col-md-3">
+                <address>
+                    Sodara Y<br />
+                    Monmouth, OR 97052-6399<br />
+                    <abbr title="Phone">Phone:</abbr>
+                    503.555.0100
+                    <br />
+                    <abbr title="Email">Email:</abbr>
+                    Support@yahoo.com
+                </address>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/mail.js"></script>
+    <link href="@Url.Content("~/Content/contact.css")" rel="stylesheet" type="text/css" />
+}

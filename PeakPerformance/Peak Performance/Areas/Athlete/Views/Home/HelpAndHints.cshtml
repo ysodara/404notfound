@@ -1,0 +1,278 @@
+﻿@{
+    ViewBag.Title = "Help and Hints";
+    Layout = "~/Areas/Athlete/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container container-fluid">
+    <div class="row" id="hhbox">
+        <div align="center">
+            <img src="~/Images/logo_only.png" width="200" />
+        </div>
+        <h1 align="center" style="color: white; font-family: 'Seville-Regular';">Help and Hints</h1>
+        @*<hr />*@
+        <table class="table" style="margin-top: 25px;" align="center">
+            <tbody>
+                <tr>
+                    <td align="center">Please visit <a id="fitbitLink" href="https://fitbit.com">fitbit.com</a> for FAQ and other answers.</td>
+                </tr>
+                <tr><td></td></tr>
+            </tbody>
+        </table>
+        <table class="table table-striped" style="margin-top: 25px;" align="center">
+            <thead>
+                <tr>
+                    <th colspan="2" style="font-variant-caps:all-small-caps; font-size: xx-large;">FAQ's</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>Why should I connect my FitBit?</strong>
+                    </td>
+                    <td>
+                        Here are some GREAT reasons:
+                        <ul>
+                            <li>
+                                Take full advantage of your personal fitness.
+                            </li>
+                            <li>
+                                Challenge yourself and set goals based on your FitBit data.
+                            </li>
+                            <li>
+                                Challenge your teammates and beat their records.
+                            </li>
+                            <li>
+                                <strong><u>Here is your first challenge:</u></strong> Surpass the average Americans steps and floors per day. (Read Below)
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>How do I connect my FitBit?</strong>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>
+                                Go to your Athlete Profile Page.
+                            </li>
+                            <li>
+                                Click on the FitBit Logo.
+                            </li>
+                            <li>
+                                You will be redirected to log into your <a id="fitbitLink" href="https://fitbit.com">fitbit.com</a> account.
+                            </li>
+                            <li>
+                                You can choose what information you want to release to Peak Performance and for how long. <br />
+                                <u>Tip:</u> If you allow all information to be released, you can take full advangtage of Peak Performance's algorithm.
+                            </li>
+                            <li>
+                                Allow Peak Performance access.
+                            </li>
+                            <li>
+                                You will be redirected back to your profile.
+                            </li>
+                            <li>
+                                Below your bio, you will find your FitBit data and an alogorithm to check if you are above or below the average calories burned for your age, weight, height, and gender.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>How do I update my FitBit data?</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Open your FitBit App or go to <a id="fitbitLink" href="https://fitbit.com">fitbit.com</a>.</li>
+                            <li>Sync your watch.</li>
+                            <li>Refresh the website to update the data.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>How long is Peak Performance authorized to use my information from Fitbit?</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                When you initially authorize us to use your information, you can choose the duration. Your options are: <strong>1 Day</strong>, <strong>1 Week</strong>, <strong>1 Month</strong>, or <strong>1 Year</strong>.
+                            </li>
+                            <li>
+                                If you would like to revoke access: Visit your <a id="fitbitLink" href="https://fitbit.com">fitbit.com</a> account. <br />
+                                Settings → Applications → Revoke Access (for Peak Performance Azure by 404 Not Found Senior Project Azure)
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>
+                            What do I need to have entered to use the algorithm?
+                        </strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                Height
+                            </li>
+                            <li>
+                                Weight
+                            </li>
+                            <li>
+                                Gender
+                            </li>
+                            <li>
+                                DOB
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <strong>I need help.</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                No Problem! Please contact us through the <a id="fitbitLink" href="~/Home/Contact">contact page</a>.
+                            </li>
+                            <li>
+                                Please use "FitBit Help" as the subject of your inquiry.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <table class="table table-bordered" style="margin-top: 25px;" align="center">
+            <thead>
+                <tr>
+                    <th colspan="2" style="font-variant-caps:all-small-caps; font-size: large;">What each piece of data means</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Steps</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                The <a id="fitbitLink" href="https://health.gov/sites/default/files/2019-09/paguide.pdf">2008 U.S. Department of Health and Human Services Physical Activity Guidelines Advisory Committee Report</a> recommend taking <strong>10,000</strong> steps per day.
+                            </li>
+                            <li>
+                                The average American only walks <strong>2,500</strong> steps. 😬
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Miles</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                On average, <strong>2,000</strong> steps equals <strong>1</strong> mile.
+                            </li>
+                            <li>
+                                <u>Ex:</u> 10,000 steps ≈ 5 miles.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Calories</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>This number represents how many calories you have burned so far based on your <strong>age</strong>, <strong>weight</strong>, <strong>height</strong>, <strong>gender</strong>, and <strong>activity level</strong>.</li>
+                            <li>
+                                <u>Reminder:</u> You burn calories even when you breath!
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Floors</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                The <a id="fitbitLink" href="https://health.gov/sites/default/files/2019-09/paguide.pdf">2008 U.S. Department of Health and Human Services Physical Activity Guidelines Advisory Committee Report</a> recommends to take the stairs over the elevator whenever possible.
+                            </li>
+                            <li>
+                                Climbing just <strong>eight</strong> flights of stairs a day lowers average early mortality risk by <strong>33%</strong>.
+                            </li>
+                            <li>
+                                <strong>Seven</strong> minutes of stair climbing a day can <strong>half</strong> the risk of heart attack over <strong>10 years</strong>.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Sedintary Minutes</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                The average American adult now spends about <strong>6½ (390 minutes)</strong> hours a day sitting — an <strong>increase</strong> of about an hour a day since 2007.
+                            </li>
+                            <li>
+                                <u>Tip:</u> If you haven't put your FitBit watch on for the day, your sedintary minutes will default to 1,400 minutes (60min × 24hrs).
+                            </li>
+                            <li>
+                                An average American has around <strong>840 minutes</strong> of sedintary time per day. (Including the average 8hrs of sleep.)
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        <strong>Calories Per Hour</strong>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                Using a very simple equation, we can determine (based on age, height, weight, and gender) how many calories <strong>you should be burning</strong> per hour. <br />
+                                <u>For Women:</u> 655.1 + (4.35 × weight) + (4.7 × height) - (4.7 × age)<br />
+                                <u>For Men:</u>  66 + (6.2 × weight) + (12.7 × height) - (6.76 × age)
+                            </li>
+
+                            <li>If you haven't entered your <strong>age</strong>, <strong>height</strong>, <strong>weight</strong>, and <strong>gender</strong> - you will not see this algorithm.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="margin-top: 25px;" align="center">
+            <tbody>
+                <tr>
+                    <td align="center" style="vertical-align: middle;">
+                        Please review the <a id="fitbitLink" href="~/Home/TermsAndConditions">Terms and Conditions</a> and <a id="fitbitLink" href="~/Home/PrivacyPolicy">Privacy Policy</a> for any legal questions.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="wrapper">
+            <button type="button" onclick="goBack();">Go Back To Profile</button>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <link href="@Url.Content("~/Content/AthleteProfileStyle.css")" rel="stylesheet" type="text/css" />
+}
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
